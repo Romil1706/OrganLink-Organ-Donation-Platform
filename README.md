@@ -101,12 +101,23 @@ The platform follows a web-based architecture consisting of:
 - **User Roles:** Donor, Recipient and Doctor.
 
 
+
 ## Project Structure
 
 ```text
 OrganLink/
 │
 ├── app.py
+├── ai_matcher.py
+├── ml_model.py
+├── gemini_extractor.py
+│
+├── organlink_model.pkl
+├── label_encoders.pkl
+│
+├── organlink_synthetic_dataset_20000.csv
+│
+├── database.txt
 │
 ├── templates/
 │   ├── index.html
@@ -126,9 +137,9 @@ OrganLink/
 │   ├── ai_compatibility.html
 │   ├── hospital_ai_matching.html
 │   ├── matching_results.html
-│   ├── hospital_add_recipient.html
-│   ├── hospital_reports.html
 │   ├── medical_reports.html
+│   ├── hospital_reports.html
+│   ├── hospital_add_recipient.html
 │   ├── verify_donors.html
 │   ├── verify_recipients.html
 │   ├── view_donors.html
@@ -145,9 +156,31 @@ OrganLink/
 │   ├── js/
 │   └── images/
 │
-├── requirements.txt
+├── uploads/
 │
+├── test.py
+├── testing.py
+├── requirements.txt
 └── README.md
+```
+
+## Core Backend Modules
+
+| File | Purpose |
+|---|---|
+| `app.py` | Main Flask application and routing |
+| `ai_matcher.py` | AI-assisted donor-recipient matching |
+| `ml_model.py` | Machine Learning model functionality |
+| `gemini_extractor.py` | Gemini AI integration |
+| `organlink_model.pkl` | Saved trained ML model |
+| `label_encoders.pkl` | Saved label encoders |
+| `database.txt` | Database-related file |
+
+## Dataset
+
+The project includes a synthetic dataset containing 20,000 records, used for Machine Learning development and experimentation.
+
+**Dataset:** `organlink_synthetic_dataset_20000.csv`
 ```
 
 

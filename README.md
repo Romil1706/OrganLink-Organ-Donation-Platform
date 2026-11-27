@@ -102,6 +102,7 @@ The platform follows a web-based architecture consisting of:
 
 
 
+
 ## Project Structure
 
 ```text
@@ -117,7 +118,8 @@ OrganLink/
 │
 ├── organlink_synthetic_dataset_20000.csv
 │
-├── database.txt
+├── LICENSE
+├── README.md
 │
 ├── templates/
 │   ├── index.html
@@ -151,37 +153,32 @@ OrganLink/
 │   ├── system.html
 │   └── terms.html
 │
-├── static/
-│   ├── css/
-│   ├── js/
-│   └── images/
-│
-├── uploads/
-│
-├── test.py
-├── testing.py
-├── requirements.txt
-└── README.md
+└── static/
+    ├── css/
+    ├── js/
+    └── images/
 ```
 
 ## Core Backend Modules
 
-| File | Purpose |
+| File | Description |
 |---|---|
-| `app.py` | Main Flask application and routing |
-| `ai_matcher.py` | AI-assisted donor-recipient matching |
-| `ml_model.py` | Machine Learning model functionality |
-| `gemini_extractor.py` | Gemini AI integration |
-| `organlink_model.pkl` | Saved trained ML model |
-| `label_encoders.pkl` | Saved label encoders |
-| `database.txt` | Database-related file |
+| app.py | Main Flask application and routing |
+| ai_matcher.py | AI-assisted organ matching |
+| ml_model.py | Machine Learning model implementation |
+| gemini_extractor.py | Gemini Generative AI integration |
+| organlink_model.pkl | Trained Machine Learning model |
+| label_encoders.pkl | Saved label encoders |
 
 ## Dataset
 
-The project includes a synthetic dataset containing 20,000 records, used for Machine Learning development and experimentation.
+The project uses a synthetic dataset containing 20,000 records for Machine Learning development and experimentation.
 
 **Dataset:** `organlink_synthetic_dataset_20000.csv`
-```
+
+## Machine Learning Model
+
+The trained model and corresponding label encoders are saved as Pickle files (`.pkl`) and used by the application for compatibility prediction.
 
 
 *The structure above is a suggested organization; adjust it to match the actual files in your repository.*

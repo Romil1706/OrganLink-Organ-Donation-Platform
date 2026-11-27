@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Medical Reports</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='dashboard.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">OrganLink</div>
+
+    <ul>
+        <li><a href="/donor">Dashboard</a></li>
+        <li><a href="/">Logout</a></li>
+    </ul>
+
+</nav>
+
+<div class="dashboard-container">
+
+    <h1>Medical Reports</h1>
+
+    <div class="card">
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <input
+    type="text"
+    name="report_name"
+    placeholder="Report Name"
+    required>
+
+<br><br>
+
+<input
+    type="file"
+    name="report"
+    accept=".pdf"
+    required>
+
+<br><br>
+
+<button type="submit">
+    Upload Report
+</button>
+
+            <br><br>
+
+            <button type="submit">
+                Add Report
+            </button>
+
+        </form>
+
+    </div>
+
+{% for report in reports %}
+
+<div class="card">
+
+    <h2>{{ report[0] }}</h2>
+
+    <p>
+        File:
+        {{ report[1] }}
+    </p>
+
+    <p>
+        Uploaded:
+        {{ report[2] }}
+    </p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+
+</html>

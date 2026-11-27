@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OrganLink Terms & Conditions</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='dashboard.css') }}">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <div class="card">
+
+        <h1>Terms and Conditions</h1>
+
+        <p>
+            Last Updated: September 2026
+        </p>
+
+        <hr>
+
+        <h3>1. Purpose of OrganLink</h3>
+
+        <p>
+            OrganLink is a digital platform designed to facilitate communication,
+            registration, awareness, and information sharing between organ donors,
+            recipients, hospitals, and healthcare professionals.
+        </p>
+
+        <p>
+            OrganLink does not perform organ transplantation, medical diagnosis,
+            medical treatment, organ allocation, or compatibility verification.
+        </p>
+
+        <h3>2. Role of OrganLink</h3>
+
+        <p>
+            OrganLink acts solely as an intermediary technology platform.
+            The platform provides tools for registration, document management,
+            awareness resources, and communication between stakeholders.
+        </p>
+
+        <p>
+            All medical decisions, donor approvals, recipient approvals,
+            compatibility assessments, and transplant procedures remain the sole
+            responsibility of authorized hospitals and licensed medical professionals.
+        </p>
+
+        <h3>3. Registration and Verification Process</h3>
+
+<p>
+Creating an OrganLink account does not automatically qualify a user as a
+verified donor or verified recipient.
+</p>
+
+<p>
+After registration, users may be required to upload supporting documents
+including, but not limited to, government-issued identification,
+blood group reports, medical fitness certificates, consent forms,
+medical reports, prescriptions, diagnostic reports, and official
+hospital documentation.
+</p>
+
+<p>
+All uploaded documents are reviewed solely by authorized hospitals
+registered on the OrganLink platform.
+</p>
+
+<p>
+OrganLink does not verify, authenticate, validate, or approve any
+documents uploaded by users.
+</p>
+
+<p>
+To complete verification, donors and recipients may be required to
+appear in person at the hospital selected for verification.
+</p>
+
+<p>
+Only after successful document review and in-person verification may a
+hospital mark a donor or recipient as "Verified."
+</p>
+
+        <h3>4. No Medical Advice</h3>
+
+        <p>
+            Information provided through OrganLink is intended solely for
+            educational and informational purposes.
+        </p>
+
+        <p>
+            Nothing on the platform should be interpreted as medical advice,
+            diagnosis, treatment recommendation, or professional healthcare guidance.
+        </p>
+
+        <h3>5. AI Compatibility and Recommendations</h3>
+
+        <p>
+            Any compatibility scores, matching suggestions, rankings,
+            recommendations, or AI-generated outputs displayed on OrganLink are
+            provided solely for research, educational, and informational purposes.
+        </p>
+
+        <p>
+            Such results must not be used as the sole basis for any medical,
+            legal, or transplant-related decision.
+        </p>
+
+        <p>
+            Final compatibility determination must always be conducted by
+            authorized hospitals and qualified transplant specialists.
+        </p>
+
+        <h3>6. Role of OrganLink and Limitation of Liability</h3>
+
+<p>
+OrganLink is solely a technology platform that facilitates registration,
+document submission, awareness, communication, and information sharing
+between donors, recipients, and hospitals.
+</p>
+
+<p>
+OrganLink does not perform organ transplantation, organ allocation,
+medical diagnosis, medical treatment, laboratory testing, document
+verification, or compatibility verification.
+</p>
+
+<p>
+OrganLink shall not be held responsible for:
+</p>
+
+<ul>
+
+    <li>False, inaccurate, incomplete, or misleading information provided by users.</li>
+
+    <li>Fraudulent, forged, or outdated documents uploaded to the platform.</li>
+
+    <li>Verification decisions made by hospitals.</li>
+
+    <li>Rejection or approval of donors or recipients.</li>
+
+    <li>Organ availability or organ allocation decisions.</li>
+
+    <li>Medical complications before, during, or after transplantation.</li>
+
+    <li>Compatibility decisions made by healthcare professionals.</li>
+
+    <li>Transplant success rates or medical outcomes.</li>
+
+    <li>Actions taken by hospitals, donors, recipients, or third parties.</li>
+
+    <li>Losses, damages, injuries, or disputes arising from transplantation procedures.</li>
+
+</ul>
+
+<p>
+All medical, legal, and transplant-related decisions remain the sole
+responsibility of licensed healthcare professionals and authorized
+hospitals.
+</p>
+
+        <h3>7. User Responsibilities</h3>
+
+<p>
+Users must ensure that all personal information, medical information,
+and uploaded documents are accurate, truthful, and up to date.
+</p>
+
+<p>
+Users agree not to upload forged, altered, misleading, or fraudulent
+documents.
+</p>
+
+<p>
+Donors and recipients acknowledge that hospital verification may require
+additional medical examinations, document review, interviews, and
+mandatory in-person visits.
+</p>
+
+<p>
+Failure to cooperate with the verification process may result in
+rejection or suspension of the account.
+</p>
+
+        <h3>8. Privacy and Data Usage</h3>
+
+        <p>
+            By using OrganLink, users consent to the storage and processing of
+            personal information and medical information for the purpose of
+            facilitating organ donation and transplantation workflows.
+        </p>
+
+        <p>
+            Information may be shared with authorized hospitals and healthcare
+            professionals when required for verification and matching purposes.
+        </p>
+
+        <h3>9. Acceptance</h3>
+
+<p>
+By selecting the checkbox below and proceeding with registration,
+you acknowledge and agree that:
+</p>
+
+<ul>
+
+    <li>Registration does not guarantee verification.</li>
+
+    <li>All uploaded documents will be reviewed by hospitals.</li>
+
+    <li>Additional documents may be requested by hospitals.</li>
+
+    <li>In-person verification may be required.</li>
+
+    <li>OrganLink is only a technology platform and not a medical authority.</li>
+
+    <li>Final verification, compatibility assessment, and transplant decisions are made solely by hospitals and healthcare professionals.</li>
+
+</ul>
+<form action="/accept-terms" method="POST">
+
+    <div style="margin-top:20px; padding:15px; border:1px solid #ddd; border-radius:10px;">
+
+        <input
+            type="checkbox"
+            id="accept_terms"
+            required>
+
+        <label for="accept_terms">
+
+            I have read, understood, and agree to the OrganLink Terms and
+            Conditions, including the document verification process,
+            hospital review process, in-person verification requirements,
+            and limitation of liability.
+
+        </label>
+
+    </div>
+
+    <br>
+
+    <button type="submit">
+        Continue Registration
+    </button>
+
+</form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

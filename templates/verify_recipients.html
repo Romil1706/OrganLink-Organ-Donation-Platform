@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Verify Recipients</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='dashboard.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">OrganLink Hospital</div>
+
+        <ul>
+
+            <li>
+                <a href="/hospital">Dashboard</a>
+            </li>
+
+            <li>
+                <a href="/verify-donors">Donors</a>
+            </li>
+
+            <li>
+                <a href="/verify-recipients">Recipients</a>
+            </li>
+
+            <li>
+                <a href="/logout">Logout</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- PAGE CONTENT -->
+
+    <div class="dashboard-container">
+
+        <h1>Registered Recipients</h1>
+
+        <div class="cards">
+
+            {% for recipient in recipients %}
+
+            <div class="card">
+
+                <h2>{{ recipient[1] }}</h2>
+
+                <p>
+                    <strong>Email:</strong>
+                    {{ recipient[2] }}
+                </p>
+
+                <p>
+                    <strong>Age:</strong>
+                    {{ recipient[3] }}
+                </p>
+
+                <p>
+                    <strong>Gender:</strong>
+                    {{ recipient[4] }}
+                </p>
+
+                <p>
+                    <strong>Blood Group:</strong>
+                    {{ recipient[5] }}
+                </p>
+
+                <p>
+                    <strong>Phone:</strong>
+                    {{ recipient[6] }}
+                </p>
+
+                <p>
+    <strong>Status:</strong>
+
+    {% if recipient[7] == 'Verified' %}
+
+        <span style="color:green;font-weight:bold;">
+            Verified
+        </span>
+
+    {% else %}
+
+        <span style="color:#e67e22;font-weight:bold;">
+            Pending Verification
+        </span>
+
+    {% endif %}
+
+</p>
+
+                {% if recipient[7] == 'Pending' %}
+
+<form action="/verify-user/{{ recipient[0] }}"
+      method="POST">
+
+    <button type="submit"
+            class="edit-btn">
+
+        Verify Recipient
+
+    </button>
+
+</form>
+
+{% else %}
+
+<button class="edit-btn"
+        disabled>
+
+    Verified
+
+</button>
+
+{% endif %}
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

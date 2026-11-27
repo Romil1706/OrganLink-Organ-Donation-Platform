@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Compatibility Matching</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='dashboard.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        OrganLink Hospital
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="/hospital">
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="/logout">
+                Logout
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+<div class="dashboard-container">
+
+    <h1>AI Compatibility Matching</h1>
+
+    <div class="card">
+
+        <h2>Select Recipient</h2>
+
+        <form action="/run-ai-matching"
+              method="POST">
+
+            <label>
+                Recipient
+            </label>
+
+            <select name="recipient_id"
+                    required
+                    style="width:100%;
+                           padding:12px;
+                           margin-top:10px;
+                           margin-bottom:20px;">
+
+                {% for recipient in recipients %}
+
+                <option value="{{ recipient[0] }}">
+                    {{ recipient[1] }} ({{ recipient[2] }})
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+            <button type="submit"
+                    class="edit-btn">
+
+                Run AI Matching
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

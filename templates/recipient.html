@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipient Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+
+<nav>
+
+    <div class="logo">OrganLink</div>
+
+    <ul>
+        <li><a href="/recipient">Dashboard</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Requests</a></li>
+        <li><a href="#">Matches</a></li>
+        <li><a href="/">Logout</a></li>
+    </ul>
+
+</nav>
+
+<div class="dashboard-container">
+
+    <h1>Welcome Recipient</h1>
+
+    <div class="cards">
+
+<a href="/profile" class="card-link">
+    <div class="card">
+        <h2>My Profile</h2>
+        <p>View and update profile details.</p>
+    </div>
+</a>
+
+        <a href="/organ-request" class="card-link">
+    <div class="card">
+        <h2>Organ Request</h2>
+        <p>Submit and manage organ transplant requests.</p>
+    </div>
+</a>
+
+        <a href="/request-status" class="card-link">
+
+    <div class="card">
+
+        <h2>Request Status</h2>
+        <p>
+            Track approval and verification progress.
+        </p>
+
+    </div>
+
+</a>
+
+        <a href="/medical-reports" class="card-link">
+    <div class="card">
+        <h2>Medical Reports</h2>
+        <p>Upload and manage reports.</p>
+    </div>
+</a>
+
+        <a href="/waiting-list" class="card-link">
+
+<div class="card">
+
+    <h2>Waiting List Position</h2>
+
+    <p>
+        Check your current ranking and priority status.
+    </p>
+
+</div>
+
+</a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

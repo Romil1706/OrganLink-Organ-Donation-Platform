@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Waiting List</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='dashboard.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">OrganLink</div>
+
+</nav>
+
+<div class="dashboard-container">
+
+    <div class="card">
+
+        <h1>Waiting List Position</h1>
+
+        {% if request %}
+
+        <h2>Your Position: {{ position }}</h2>
+
+        <p>
+            <strong>Requested Organ:</strong>
+            {{ request[1] }}
+        </p>
+
+        <p>
+            <strong>Urgency:</strong>
+            {{ request[2] }}
+        </p>
+
+        <p>
+            <strong>Request Date:</strong>
+            {{ request[3] }}
+        </p>
+
+        {% else %}
+
+        <h2>No active organ request found.</h2>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Compatibility Results</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='dashboard.css') }}">
+
+    <style>
+
+        .recipient-card{
+            margin-bottom:30px;
+        }
+
+        .badge{
+            display:inline-block;
+            padding:8px 16px;
+            border-radius:20px;
+            color:white;
+            font-weight:bold;
+            margin-top:10px;
+        }
+
+        .excellent{
+            background:#16a34a;
+        }
+
+        .good{
+            background:#f59e0b;
+        }
+
+        .low{
+            background:#ef4444;
+        }
+
+        .top-match{
+            border:3px solid #10b981;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        OrganLink AI
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="/hospital">
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="/hospital-ai-matching">
+                Run Again
+            </a>
+        </li>
+
+        <li>
+            <a href="/logout">
+                Logout
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+<div class="dashboard-container">
+
+    <h1>AI Compatibility Results</h1>
+
+    <!-- Recipient Information -->
+
+    <div class="card recipient-card">
+
+        <h2>Recipient Information</h2>
+
+        <p>
+            <strong>Name:</strong>
+            {{ recipient_name }}
+        </p>
+
+        <p>
+            <strong>Blood Group:</strong>
+            {{ recipient_blood }}
+        </p>
+
+        <p>
+            <strong>Required Organ:</strong>
+            {{ recipient_organ }}
+        </p>
+
+    </div>
+
+    <h2>Compatible Donors Ranked By AI</h2>
+
+    <div class="cards">
+
+        {% for donor in matches %}
+
+        <div class="card {% if loop.first %}top-match{% endif %}">
+
+            <h2>
+                {{ donor.name }}
+            </h2>
+
+            <p>
+                <strong>Blood Group:</strong>
+                {{ donor.blood_group }}
+            </p>
+
+            <p>
+                <strong>Available Organ:</strong>
+                {{ donor.organ }}
+            </p>
+
+            <p>
+                <strong>HLA Match Score:</strong>
+                {{ donor.hla_score }}
+            </p>
+
+            <p>
+                <strong>AI Confidence:</strong>
+                {{ donor.ai_probability }}%
+            </p>
+
+            <p>
+                <strong>Prediction:</strong>
+                {{ donor.prediction }}
+            </p>
+
+            {% if donor.ai_probability >= 90 %}
+
+                <span class="badge excellent">
+                    Excellent Match
+                </span>
+
+            {% elif donor.ai_probability >= 70 %}
+
+                <span class="badge good">
+                    Good Match
+                </span>
+
+            {% else %}
+
+                <span class="badge low">
+                    Low Match
+                </span>
+
+            {% endif %}
+
+            {% if loop.first %}
+
+                <p style="
+                    margin-top:15px;
+                    color:#10b981;
+                    font-weight:bold;
+                ">
+                    ⭐ Recommended Donor
+                </p>
+
+            {% endif %}
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

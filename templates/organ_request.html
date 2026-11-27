@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Organ Request</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='dashboard.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">OrganLink</div>
+
+    <ul>
+        <li><a href="/recipient">Dashboard</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+
+</nav>
+
+<div class="dashboard-container">
+
+    <div class="card">
+
+        <h1>Organ Request Form</h1>
+
+        <form method="POST">
+
+            <label>
+                <strong>Select Required Organ</strong>
+            </label>
+
+            <select name="organ" required>
+
+                <option value="">Choose Organ</option>
+
+                <option value="Kidney">Kidney</option>
+                <option value="Liver">Liver</option>
+                <option value="Heart">Heart</option>
+                <option value="Lung">Lung</option>
+                <option value="Pancreas">Pancreas</option>
+                <option value="Small Intestine">Small Intestine</option>
+                <option value="Cornea">Cornea</option>
+                <option value="Bone Marrow">Bone Marrow</option>
+
+            </select>
+
+            <br><br>
+
+            <label>
+                <strong>Urgency Level</strong>
+            </label>
+
+            <select name="urgency" required>
+
+                <option value="">Select Urgency</option>
+
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                <option value="Critical">Critical</option>
+
+            </select>
+
+            <br><br>
+
+            <label>
+                <strong>Medical Condition</strong>
+            </label>
+
+            <textarea
+                name="condition"
+                rows="4"
+                placeholder="Describe your medical condition..."
+                required>
+            </textarea>
+
+            <br><br>
+
+            <button type="submit">
+                Submit Request
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

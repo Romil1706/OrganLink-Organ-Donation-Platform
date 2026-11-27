@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrganLink Awareness Dashboard</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#f4f7f6,#e8f5f0);
+    min-height:100vh;
+}
+
+nav{
+    background:linear-gradient(90deg,#0b6b57,#12876f);
+    color:white;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 3px 15px rgba(0,0,0,0.15);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.ticker{
+    background:#0b6b57;
+    color:white;
+    overflow:hidden;
+    white-space:nowrap;
+    padding:14px 0;
+    box-shadow:0 2px 8px rgba(0,0,0,0.15);
+}
+
+.ticker-text{
+    display:inline-block;
+    padding-left:100%;
+    animation:scroll 28s linear infinite;
+    font-size:16px;
+    font-weight:600;
+}
+
+@keyframes scroll{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-100%);
+    }
+}
+
+.hero{
+    text-align:center;
+    padding:60px 20px 40px;
+}
+
+.hero h1{
+    font-size:42px;
+    color:#0b6b57;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:850px;
+    margin:auto;
+    color:#555;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.container{
+    width:92%;
+    margin:auto;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-bottom:50px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:all 0.35s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:linear-gradient(90deg,#0b6b57,#1bc998);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+.card h2{
+    color:#0b6b57;
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#666;
+    font-size:18px;
+}
+
+.charts{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(450px,1fr));
+    gap:30px;
+    margin-bottom:50px;
+}
+
+.chart-card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.chart-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+}
+
+.chart-card h3{
+    text-align:center;
+    color:#0b6b57;
+    margin-bottom:20px;
+    font-size:22px;
+}
+
+.insights{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(450px,1fr));
+    gap:30px;
+    margin-bottom:50px;
+}
+
+.insight-card{
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.insight-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+}
+
+.insight-card h3{
+    color:#0b6b57;
+    margin-bottom:20px;
+    font-size:24px;
+}
+
+.insight-card ul{
+    padding-left:20px;
+}
+
+.insight-card li{
+    margin-bottom:12px;
+    line-height:1.7;
+    color:#444;
+}
+
+footer{
+    background:linear-gradient(90deg,#0b6b57,#12876f);
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:50px;
+    font-size:15px;
+}
+
+canvas{
+    max-height:320px;
+}
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .charts{
+        grid-template-columns:1fr;
+    }
+
+    .insights{
+        grid-template-columns:1fr;
+    }
+
+}
+
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">OrganLink Awareness Dashboard</div>
+</nav>
+
+<div class="ticker">
+    <div class="ticker-text">
+        96.4% of respondents have heard about organ donation •
+        76.4% support organ donation •
+        90.9% believe organ donation awareness should increase •
+        54.5% are willing to donate organs after death •
+        58.2% trust AI-assisted donor matching •
+        65.5% trust secure digital organ donation systems •
+        Most respondents belong to the 18–25 age group •
+    </div>
+</div>
+
+<div class="hero">
+    <h1>Organ Donation Awareness Survey</h1>
+    <p>
+        This dashboard presents anonymous survey insights collected through
+        OrganLink. The statistics below help understand public awareness,
+        willingness to donate organs, and trust in AI-assisted organ matching.
+    </p>
+</div>
+
+<div class="container">
+
+    <div class="stats">
+
+        <div class="card">
+            <h2>55</h2>
+            <p>Total Responses</p>
+        </div>
+
+        <div class="card">
+            <h2>96.4%</h2>
+            <p>Awareness Rate</p>
+        </div>
+
+        <div class="card">
+            <h2>76.4%</h2>
+            <p>Support Organ Donation</p>
+        </div>
+
+        <div class="card">
+            <h2>58.2%</h2>
+            <p>Trust AI Matching</p>
+        </div>
+
+    </div>
+
+    <div class="charts">
+
+        <div class="chart-card">
+            <h3>Age Distribution</h3>
+            <canvas id="ageChart"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <h3>Gender Distribution</h3>
+            <canvas id="genderChart"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <h3>Knowledge Level</h3>
+            <canvas id="knowledgeChart"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <h3>Support For Organ Donation</h3>
+            <canvas id="supportChart"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <h3>Trust In AI Matching</h3>
+            <canvas id="aiChart"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <h3>Willing To Donate After Death</h3>
+            <canvas id="donateChart"></canvas>
+        </div>
+
+    </div>
+
+    <div class="insights">
+
+        <div class="insight-card">
+
+            <h3>Survey Insights</h3>
+
+            <ul>
+                <li>96.4% of respondents have heard about organ donation.</li>
+                <li>76.4% support organ donation initiatives.</li>
+                <li>90.9% believe awareness campaigns should be increased.</li>
+                <li>58.2% trust AI-assisted donor-recipient matching.</li>
+                <li>65.5% trust secure digital organ donation systems.</li>
+                <li>The largest respondent group belongs to the 18–25 age category.</li>
+            </ul>
+
+        </div>
+
+        <div class="insight-card">
+
+            <h3>Did You Know?</h3>
+
+            <ul>
+                <li>One organ donor can save multiple lives.</li>
+                <li>Kidney transplants are among the most common organ transplants.</li>
+                <li>Awareness and education significantly increase donor registrations.</li>
+                <li>AI can help hospitals identify compatible donors more efficiently.</li>
+                <li>Digital organ donation systems improve transparency and accessibility.</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 OrganLink - Organ Donation Awareness Dashboard
+</footer>
+
+<script>
+
+new Chart(document.getElementById("ageChart"), {
+    type: "bar",
+    data: {
+        labels: ["Under 18","18-25","26-40","41-60","Above 60"],
+        datasets: [{
+            label: "Responses",
+            data: [1,32,5,14,3]
+        }]
+    }
+});
+
+new Chart(document.getElementById("genderChart"), {
+    type: "pie",
+    data: {
+        labels: ["Male","Female"],
+        datasets: [{
+            data: [31,24]
+        }]
+    }
+});
+
+new Chart(document.getElementById("knowledgeChart"), {
+    type: "bar",
+    data: {
+        labels: ["Poor","Average","Good","Very Good"],
+        datasets: [{
+            label: "Responses",
+            data: [2,19,21,13]
+        }]
+    }
+});
+
+new Chart(document.getElementById("supportChart"), {
+    type: "pie",
+    data: {
+        labels: ["Yes","Not Sure","No"],
+        datasets: [{
+            data: [42,11,2]
+        }]
+    }
+});
+
+new Chart(document.getElementById("aiChart"), {
+    type: "doughnut",
+    data: {
+        labels: ["Yes","Not Sure","No"],
+        datasets: [{
+            data: [32,19,4]
+        }]
+    }
+});
+
+new Chart(document.getElementById("donateChart"), {
+    type: "doughnut",
+    data: {
+        labels: ["Yes","Not Sure","No"],
+        datasets: [{
+            data: [30,20,5]
+        }]
+    }
+});
+
+</script>
+
+</body>
+</html>

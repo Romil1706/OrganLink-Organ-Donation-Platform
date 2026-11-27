@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Organ Registration</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='dashboard.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">OrganLink</div>
+
+</nav>
+
+<div class="dashboard-container">
+
+    <div class="card">
+
+        <h1>Organ Registration</h1>
+
+        <form method="POST">
+
+<h3>Select Organs</h3>
+
+<div class="organ-list">
+
+    <label class="organ-item">
+        <input type="checkbox" name="organs" value="Kidney">
+        <span>Kidney</span>
+    </label>
+
+    <label class="organ-item">
+        <input type="checkbox" name="organs" value="Liver">
+        <span>Liver</span>
+    </label>
+
+    <label class="organ-item">
+        <input type="checkbox" name="organs" value="Heart">
+        <span>Heart</span>
+    </label>
+
+    <label class="organ-item">
+        <input type="checkbox" name="organs" value="Lung">
+        <span>Lung</span>
+    </label>
+
+    <label class="organ-item">
+        <input type="checkbox" name="organs" value="Pancreas">
+        <span>Pancreas</span>
+    </label>
+
+    <label class="organ-item">
+        <input type="checkbox" name="organs" value="Small Intestine">
+        <span>Small Intestine</span>
+    </label>
+
+    <label class="organ-item">
+        <input type="checkbox" name="organs" value="Cornea">
+        <span>Cornea</span>
+    </label>
+
+    <label class="organ-item">
+        <input type="checkbox" name="organs" value="Bone Marrow">
+        <span>Bone Marrow</span>
+    </label>
+
+</div>
+<br>
+
+<p>
+<strong>Note:</strong>
+Heart, lungs, pancreas, and intestines are generally donated by deceased donors,
+while kidneys, part of the liver, bone marrow, and some tissues may be donated by living donors.
+</p>
+
+<br>
+
+<label><strong>Donor Status</strong></label>
+
+<select name="donor_status" required>
+    <option value="">Select Status</option>
+    <option value="Alive">Alive</option>
+    <option value="Deceased">Deceased</option>
+</select>
+
+<br><br>
+
+<button type="submit">
+    Register Organ
+</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

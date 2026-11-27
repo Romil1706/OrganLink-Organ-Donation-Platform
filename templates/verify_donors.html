@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Verify Donors</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">OrganLink Hospital</div>
+
+    <ul>
+        <li><a href="/hospital">Dashboard</a></li>
+        <li><a href="/verify-donors">Donors</a></li>
+        <li><a href="/verify-recipients">Recipients</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+</nav>
+
+<div class="dashboard-container">
+
+    <h1>Registered Donors</h1>
+
+    <div class="cards">
+
+        {% for donor in donors %}
+
+        <div class="card">
+
+            <h2>{{ donor[1] }}</h2>
+
+            <p>
+                <strong>Email:</strong>
+                {{ donor[2] }}
+            </p>
+
+            <p>
+                <strong>Blood Group:</strong>
+                {{ donor[3] }}
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                {{ donor[4] }}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+
+                {% if donor[5] == 'Verified' %}
+
+                    <span style="color:green;font-weight:bold;">
+                        Verified
+                    </span>
+
+                {% else %}
+
+                    <span style="color:#e67e22;font-weight:bold;">
+                        Pending Verification
+                    </span>
+
+                {% endif %}
+
+            </p>
+
+            {% if donor[5] != 'Verified' %}
+
+            <form action="/verify-user/{{ donor[0] }}"
+                  method="POST">
+
+                <button type="submit"
+                        class="edit-btn">
+
+                    Verify Donor
+
+                </button>
+
+            </form>
+
+            {% else %}
+
+            <button class="edit-btn"
+                    disabled>
+
+                Verified
+
+            </button>
+
+            {% endif %}
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

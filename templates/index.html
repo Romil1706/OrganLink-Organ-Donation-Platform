@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrganLink</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">OrganLink</div>
+
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#about">Awareness</a></li>
+            <li><a href="/register">Register</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Connecting Lives Through Organ Donation</h1>
+
+            <p>
+                An intelligent platform that helps donors,
+                recipients and hospitals manage organ donation
+                efficiently through transparency, secure records,
+                and AI-assisted compatibility prediction.
+            </p>
+
+            <div class="buttons">
+
+                <button class="btn-primary"
+                    onclick="window.location.href='/register'">
+                    Register Now
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNoorP49ZsNgax_7_G1c-bAXZyyEJWypha7PMBpcoL7w&s=10"
+                alt="Organ Donation">
+
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <h2>Why OrganLink?</h2>
+
+        <p>
+            OrganLink combines donor registration,
+            recipient management, hospital participation,
+            AI-assisted compatibility prediction,
+            medical report management, and awareness
+            generation into a single platform.
+        </p>
+
+    </section>
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <div class="card">
+            <h3>Donor Registration</h3>
+            <p>
+                Easy registration and profile management
+                for organ donors.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Recipient Management</h3>
+            <p>
+                Manage recipient details and medical
+                information securely.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>AI Compatibility</h3>
+            <p>
+                Machine learning based compatibility
+                prediction and ranking.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Transparency</h3>
+            <p>
+                Improved communication between donor
+                families and recipients.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- STATS -->
+
+    <section class="stats">
+
+        <div class="stat-box">
+            <h2>1000+</h2>
+            <p>Registered Donors</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>500+</h2>
+            <p>Recipients</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>98%</h2>
+            <p>Matching Accuracy</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>24/7</h2>
+            <p>Accessibility</p>
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+        <h2>Every Donor Can Save Multiple Lives</h2>
+
+        <p>
+            Join OrganLink and contribute to a better future.
+        </p>
+
+        <button class="btn-primary"
+            onclick="window.location.href='/register'">
+            Get Started
+        </button>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer id="contact">
+
+        <p>Email: support@organlink.com</p>
+        <p>Phone: +91 9876543210</p>
+        <p>© 2026 OrganLink | Organ Donation Management Platform</p>
+
+    </footer>
+
+</body>
+
+</html>

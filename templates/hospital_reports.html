@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Medical Reports</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='dashboard.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        OrganLink Hospital
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="/hospital">Dashboard</a>
+        </li>
+
+        <li>
+            <a href="/logout">Logout</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+<div class="dashboard-container">
+
+    <h1>Uploaded Medical Reports</h1>
+
+    {% if reports %}
+
+    <div class="cards">
+
+        {% for report in reports %}
+
+        <div class="card">
+
+            <h2>{{ report[0] }}</h2>
+
+            <p>
+                <strong>Role:</strong>
+                {{ report[1] }}
+            </p>
+
+            <p>
+                <strong>Report Name:</strong>
+                {{ report[2] }}
+            </p>
+
+            <p>
+                <strong>File:</strong>
+                {{ report[3] }}
+            </p>
+
+            <p>
+                <strong>Uploaded:</strong>
+                {{ report[4] }}
+            </p>
+
+            <br>
+
+            <a href="/view-report/{{ report[3] }}"
+               target="_blank"
+               class="btn">
+                View PDF
+            </a>
+
+            <br><br>
+
+            <a href="/download-report/{{ report[3] }}"
+               class="btn">
+                Download PDF
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <div class="card">
+
+        <p>
+            No reports uploaded yet.
+        </p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+
+</html>

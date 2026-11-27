@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Donation Status</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='dashboard.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        OrganLink
+    </div>
+
+</nav>
+
+<div class="dashboard-container">
+
+    <h1>Donation Status</h1>
+
+    {% if registrations %}
+
+        {% for r in registrations %}
+
+        <div class="card">
+
+            <h2>{{ r[0] }}</h2>
+
+            <p>
+                <strong>Donor Status:</strong>
+                {{ r[1] }}
+            </p>
+
+            <p>
+                <strong>Verification Status:</strong>
+                {{ r[2] }}
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="card">
+
+            <p>
+                No registrations found.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+
+</html>

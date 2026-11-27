@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Hospital</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+
+            background:#edf7f5;
+
+            min-height:100vh;
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+        }
+
+        .form-container{
+
+            background:white;
+
+            width:450px;
+
+            padding:40px;
+
+            border-radius:15px;
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.08);
+
+        }
+
+        .form-container h1{
+
+            text-align:center;
+
+            color:#065f63;
+
+            margin-bottom:30px;
+
+        }
+
+        form{
+
+            display:flex;
+
+            flex-direction:column;
+
+            gap:15px;
+
+        }
+
+        input{
+
+            width:100%;
+
+            padding:14px;
+
+            border:1px solid #d1d5db;
+
+            border-radius:8px;
+
+            font-size:15px;
+
+            outline:none;
+
+            transition:0.3s;
+
+        }
+
+        input:focus{
+
+            border-color:#10b981;
+
+            box-shadow:
+                0 0 0 3px rgba(16,185,129,0.15);
+
+        }
+
+        button{
+
+            background:#10b981;
+
+            color:white;
+
+            border:none;
+
+            padding:14px;
+
+            border-radius:8px;
+
+            font-size:16px;
+
+            font-weight:bold;
+
+            cursor:pointer;
+
+            transition:0.3s;
+
+        }
+
+        button:hover{
+
+            background:#059669;
+
+            transform:translateY(-2px);
+
+        }
+
+        .back-link{
+
+            text-align:center;
+
+            margin-top:15px;
+
+        }
+
+        .back-link a{
+
+            text-decoration:none;
+
+            color:#065f63;
+
+            font-weight:600;
+
+        }
+
+        .back-link a:hover{
+
+            color:#10b981;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h1>Create Hospital</h1>
+
+    <form method="POST">
+
+        <input
+            type="text"
+            name="fullname"
+            placeholder="Hospital Name"
+            required>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Hospital Email"
+            required>
+
+        <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required>
+
+        <input
+            type="text"
+            name="phone"
+            placeholder="Phone Number"
+            required>
+
+        <input
+            type="text"
+            name="address"
+            placeholder="Hospital Address"
+            required>
+
+        <input
+            type="text"
+            name="area"
+            placeholder="Area / City"
+            required>
+
+        <button type="submit">
+            Create Hospital
+        </button>
+
+    </form>
+
+    <div class="back-link">
+        <a href="/admin">← Back to Dashboard</a>
+    </div>
+
+</div>
+
+</body>
+</html>

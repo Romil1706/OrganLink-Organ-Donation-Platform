@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Request Status</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='dashboard.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">OrganLink</div>
+
+    <ul>
+        <li><a href="/recipient">Dashboard</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+
+</nav>
+
+<div class="dashboard-container">
+
+    <h1>My Organ Requests</h1>
+
+    {% if requests %}
+
+        <div class="cards">
+
+        {% for req in requests %}
+
+            <div class="card">
+
+                <h2>{{ req[0] }}</h2>
+
+                <p>
+                    <strong>Urgency:</strong>
+                    {{ req[1] }}
+                </p>
+
+                <p>
+                    <strong>Status:</strong>
+                    {{ req[2] }}
+                </p>
+
+            </div>
+
+        {% endfor %}
+
+        </div>
+
+    {% else %}
+
+        <div class="card">
+
+            <h2>No Requests Found</h2>
+
+            <p>
+                You have not submitted any organ requests yet.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

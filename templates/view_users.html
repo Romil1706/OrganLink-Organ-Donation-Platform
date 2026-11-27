@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>All Users</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='dashboard.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        OrganLink Admin
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="/admin">Dashboard</a>
+        </li>
+
+        <li>
+            <a href="/logout">Logout</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+<div class="dashboard-container">
+
+    <h1>All Users</h1>
+
+    <div class="cards">
+
+        {% for user in users %}
+
+        <div class="card">
+
+            <h2>
+                {{ user[1] }}
+            </h2>
+
+            <p>
+                <strong>Email:</strong>
+                {{ user[2] }}
+            </p>
+
+            <p>
+                <strong>Role:</strong>
+                {{ user[3] }}
+            </p>
+
+            <p>
+                <strong>ID:</strong>
+                {{ user[0] }}
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

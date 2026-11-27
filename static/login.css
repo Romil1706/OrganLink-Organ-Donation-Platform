@@ -1,0 +1,149 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+/* BODY */
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0B5D56,#2FB5A8);
+}
+
+/* NAVBAR */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    background:white;
+    box-shadow:0 4px 20px rgba(13,122,107,0.12);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:700;
+    color:#0D7A6B;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#103A35;
+    font-weight:600;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#0D7A6B;
+}
+
+/* FORM CONTAINER */
+
+.container{
+    min-height:calc(100vh - 90px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+/* FORM BOX */
+
+.form-box{
+    width:450px;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+.form-box h1{
+    text-align:center;
+    color:#0B5D56;
+    margin-bottom:10px;
+}
+
+.form-box p{
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
+}
+
+/* FORM */
+
+form{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+}
+
+form input,
+form select{
+    width:100%;
+    padding:14px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    font-size:16px;
+}
+
+form input:focus,
+form select:focus{
+    outline:none;
+    border-color:#0B5D56;
+}
+
+/* BUTTON */
+
+form button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#0B5D56;
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+form button:hover{
+    background:#084640;
+}
+
+/* LOGIN / REGISTER LINK */
+
+.bottom-text{
+    margin-top:20px;
+    text-align:center;
+}
+
+.bottom-text a{
+    color:#0B5D56;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.bottom-text a:hover{
+    text-decoration:underline;
+}
+
+.error-message{
+    color:#dc3545;
+    text-align:center;
+    margin-top:15px;
+    font-weight:600;
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Recipient</title>
+   <style>
+
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#eef7f4,#dff5ed);
+    min-height:100vh;
+}
+
+nav{
+    background:#0b6b57;
+    color:white;
+    padding:18px 40px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.15);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.dashboard-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:50px 20px;
+}
+
+.card{
+    width:100%;
+    max-width:700px;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    animation:fadeIn 0.5s ease;
+}
+
+.card h1{
+    text-align:center;
+    color:#0b6b57;
+    margin-bottom:30px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+input,
+select{
+    width:100%;
+    padding:14px;
+    border:2px solid #dce7e3;
+    border-radius:10px;
+    font-size:16px;
+    transition:0.3s;
+    box-sizing:border-box;
+}
+
+input:focus,
+select:focus{
+    outline:none;
+    border-color:#0b6b57;
+    box-shadow:0 0 10px rgba(11,107,87,0.2);
+}
+
+button{
+    background:#0b6b57;
+    color:white;
+    border:none;
+    padding:15px;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#12876f;
+    transform:translateY(-2px);
+}
+
+button:active{
+    transform:translateY(0);
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@media(max-width:768px){
+
+    .card{
+        padding:25px;
+    }
+
+    .card h1{
+        font-size:26px;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">OrganLink</div>
+</nav>
+
+<div class="dashboard-container">
+
+    <div class="card">
+
+        <h1>Add Recipient</h1>
+
+        <form method="POST">
+
+            <input type="text"
+                   name="fullname"
+                   placeholder="Full Name"
+                   required>
+
+            <input type="email"
+                   name="email"
+                   placeholder="Email"
+                   required>
+
+            <input type="password"
+                   name="password"
+                   placeholder="Password"
+                   required>
+
+            <input type="number"
+                   name="age"
+                   placeholder="Age"
+                   required>
+
+            <select name="gender" required>
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+
+            <input type="text"
+                   name="blood_group"
+                   placeholder="Blood Group"
+                   required>
+
+            <input type="text"
+                   name="phone"
+                   placeholder="Phone Number"
+                   required>
+
+            <button type="submit">
+                Add Recipient
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

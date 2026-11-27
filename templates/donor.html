@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+
+<nav>
+
+    <div class="logo">OrganLink</div>
+
+    <ul>
+        <li><a href="/donor">Dashboard</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Donation</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="/">Logout</a></li>
+    </ul>
+
+</nav>
+
+<div class="dashboard-container">
+
+    <h1>Welcome Donor</h1>
+
+    <div class="cards">
+
+      <a href="/profile" class="card-link">
+    <div class="card">
+        <h2>My Profile</h2>
+        <p>View and update profile details.</p>
+    </div>
+</a>
+
+        <a href="/organ-registration" class="card-link">
+    <div class="card">
+        <h2>Organ Registration</h2>
+        <p>Register organs for donation.</p>
+    </div>
+</a>
+
+        <a href="/donation-status" class="card-link">
+    <div class="card">
+        <h2>Donation Status</h2>
+        <p>Track your registrations.</p>
+    </div>
+</a>
+
+        <a href="/medical-reports" class="card-link">
+    <div class="card">
+        <h2>Medical Reports</h2>
+        <p>Upload and manage reports.</p>
+    </div>
+</a>
+        <a href="/awareness" class="card-link">
+
+    <div class="card">
+        <h2>Awareness Dashboard</h2>
+        <p>
+            Explore survey insights, donation statistics,
+            AI trust levels, and public awareness trends.
+        </p>
+    </div>
+
+</a>
+    </div>
+
+</div>
+
+</body>
+</html>

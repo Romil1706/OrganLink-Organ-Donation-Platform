@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>System Statistics</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='dashboard.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        OrganLink Admin
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="/admin">Dashboard</a>
+        </li>
+
+        <li>
+            <a href="/logout">Logout</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+<div class="dashboard-container">
+
+    <h1>System Statistics</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>{{ total_users }}</h2>
+            <p>Total Users</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ total_donors }}</h2>
+            <p>Total Donors</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ total_recipients }}</h2>
+            <p>Total Recipients</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ total_hospitals }}</h2>
+            <p>Total Hospitals</p>
+        </div>
+
+        <div class="card">
+            <h2>{{ total_registrations }}</h2>
+            <p>Organ Registrations</p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
